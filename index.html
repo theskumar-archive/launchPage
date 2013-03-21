@@ -24,7 +24,7 @@
 </head>
 <body>
 
-	
+
 <div class="barWrap">
 	<div class="contentWrap">
 		<div class="infoBalloon">
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 
-		
+
 	  <div class="mailWrap">
 			<form action="#" name="newsletterForm" id="newsletterForm">
 			Your E-mail: <input type="text" name="email" id="email" class="newsletterInput" /><br />
@@ -44,9 +44,9 @@
 			<span class="loader"><img src="loading.gif" alt="loading" /></span>
 			</form>
 	  </div>
-		
+
 		<div class="successBalloon"><img src="success.png" alt="success" />
-			
+
 		</div>
 		<div class="errorBalloon"><img src="error.png" alt="error" />
 		</div>
@@ -58,7 +58,7 @@
 </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')</script>
 
 
 <script src="jquery.pngFix.pack.js"></script>
@@ -73,12 +73,12 @@ $(document).ready(function(){
 	var duplicateMailError	= "E-mail is<br />already in<br />the list.";
 	var systemError			= "An error<br />occurred.<br />Please try<br />again.";
 	var successMessage		= "Your e-mail<br />is added to<br />the list.";
-	
+
 	$(".successBalloon").hide();
 	$(".errorBalloon").hide();
 	$(".resultText").hide();
 	$(".loader").hide();
-	
+
     $('form#newsletterForm').bind('submit', function(e){
 		$(".successBalloon").hide();
 		$(".errorBalloon").hide();
@@ -86,7 +86,7 @@ $(document).ready(function(){
 		$(".loader").show();
 		var email  = $('input#email').val();
         e.preventDefault();
-		
+
 		$.ajax({
 			type: 'POST',
 			url: 'newsletter.php?email='+email,
@@ -95,7 +95,7 @@ $(document).ready(function(){
 				$(".resultText").fadeIn("slow");
 				$(".resultText").animate({opacity: 1.0}, 3000);
 				$(".resultText").fadeOut(1500);
-				
+
 				if (theResponse == 1) {
 					$(".successBalloon").fadeIn("slow");
 					$(".successBalloon").animate({opacity: 1.0}, 3000);
@@ -122,10 +122,10 @@ $(document).ready(function(){
 				$(".errorBalloon").fadeOut(1500);
 				$(".resultText").html(systemError);
 				$(".loader").hide();
-			}		
+			}
 		});
 	});
-			
+
 });
 </script>
 
